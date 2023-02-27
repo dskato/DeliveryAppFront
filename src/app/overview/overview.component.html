@@ -1,0 +1,56 @@
+<nav class="uk-navbar-container nav-cont" uk-navbar>
+  <p
+    class="title-class uk-margin-small-left uk-text-lead uk-align-center uk-margin-top"
+  >
+    {{ "Welcome " + user.firstName + " " + user.lastName }}
+  </p>
+  <button class="uk-button uk-button-primary" (click)="showAddProductDialog()">
+    Add Product
+  </button>
+</nav>
+<p class="uk-text-default uk-margin-left">My Products</p>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let element">
+      <input [(ngModel)]="element.name" placeholder="{{element.name}}" class="uk-input uk-width-1-3" type="text">
+    </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="weight">
+    <th mat-header-cell *matHeaderCellDef>Weight</th>
+    <td mat-cell *matCellDef="let element">
+      <input [(ngModel)]="element.weight" placeholder="{{element.weight}}" class="uk-input uk-width-1-3" type="text">
+    </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef>Description</th>
+    <td mat-cell *matCellDef="let element">
+      <input [(ngModel)]="element.description" placeholder="{{element.description}}" class="uk-input uk-width-1-3" type="text">
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef>Delete</th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button (click)="deleteProduct(element)" >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="save">
+    <th mat-header-cell *matHeaderCellDef>Save</th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button (click)="editProduct(element)" >
+        <mat-icon>save</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+  
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

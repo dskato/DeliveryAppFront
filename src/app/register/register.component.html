@@ -1,0 +1,46 @@
+<div
+  class="uk-card uk-card-default uk-position-center uk-card-body uk-width-1-2@m"
+>
+  <h3 class="uk-card-title ">Register</h3>
+  <form>
+    <fieldset class="uk-fieldset">
+      <div class="uk-flex uk-flex-column">
+        <input
+          class="uk-input uk-width-1-1 uk-margin"
+          type="text"
+          placeholder="Email"
+          name="Email"
+          [(ngModel)]="email"
+          
+        />
+        <input
+          class="uk-input uk-width-1-1"
+          type="text"
+          placeholder="Password"
+          name="Password"
+          [(ngModel)]="password"
+        />
+        <input
+          class="uk-input uk-width-1-1 uk-margin"
+          type="text"
+          placeholder="Firstname"
+          name="Firstname"
+          [(ngModel)]="firstname"
+        />
+        <input
+          class="uk-input uk-width-1-1"
+          type="text"
+          placeholder="Lastname"
+          name="Lastname"
+          [(ngModel)]="lastname"
+        />
+        <select class="uk-select uk-width-1-1 uk-margin"  [(ngModel)]="usertype" name="Select">
+          <option>NORMAL</option>
+          <option>COURIER</option>
+        </select>
+        <button class="uk-button uk-button-primary" (click)="onSubmit()">Register</button>
+
+      </div>
+    </fieldset>
+  </form>
+</div>
